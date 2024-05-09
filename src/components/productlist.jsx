@@ -25,6 +25,7 @@ const Productlist = () =>{
       </ul>
     );
   };
+  
 
 export default Productlist
   
