@@ -3,7 +3,7 @@ import React from "react";
 import { pokemon } from "../State/store.tsx";
 
 
-const Productlist = () => {
+const Productlist = () =>{
     const snap = useSnapshot(pokemon);
     return (
       <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-3">
