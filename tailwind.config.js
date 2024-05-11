@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
@@ -12,18 +13,20 @@ module.exports = {
       },
     },
     screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1440px',
+      'xs': '360px',
+      ...defaultTheme.screens,
     },
     extend: {
       colors: {
         primary: '#222222',
         secondary: '#F5E6E0',
       },
+
       backgroundImage: {
         hero: "url('./img/bghero.jpg')",
+      },
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
       },
     },
   },
