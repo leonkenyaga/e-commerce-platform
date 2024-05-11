@@ -10,7 +10,7 @@ function Homepage(){
         <div>
             <Hero />
            <Categories />
-           <Products />
+           <Products tag="Customers also purchased"/>
         </div>
       
     );
