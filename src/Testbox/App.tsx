@@ -128,3 +128,16 @@ function App() {
 }
 
 export default App;
+
+//Later
+
+const {
+  params: { id },
+} = useMatch();
+
+const snap = useSnapshot(allProducts)
+const pokemonData = snap.products.find((p) => p.id === +id);
+
+if (!pokemonData) {
+  return <div>No pokemon found</div>;
+}
