@@ -1,27 +1,24 @@
 import { proxy } from "valtio";
-import { derive } from "valtio/utils";
+//import { derive } from "valtio/utils";
 
-export interface Pokemon {
+export interface Product {
   id: number;
   name: string;
-  type: string[];
-  hp: number;
-  attack: number;
-  defense: number;
-  special_attack: number;
-  special_defense: number;
-  speed: number;
+  imageSrc: string;
+  imageAlt: string;
+  price: string;
+  color: string;
 }
 
 export const search = proxy({
   query: "",
 });
 
-const allPokemon = proxy({
-  pokemon: [] as Pokemon[],
+export const allProducts = proxy({
+  products: [] as Product[],
 });
 
-export const pokemon = derive({
+/*export const pokemon = derive({
   list: (get) => {
     const query = get(search).query.toLowerCase();
     return get(allPokemon)
@@ -30,9 +27,9 @@ export const pokemon = derive({
       .sort((a, b) => a.name.localeCompare(b.name));
   },
 });
-
-fetch("/pokemon.json")
+*/
+fetch("/products.json")
   .then((res) => res.json())
-  .then((pokemon) => {
-    allPokemon.pokemon = pokemon;
+  .then((products) => {
+    allProducts.products = products;
   });
