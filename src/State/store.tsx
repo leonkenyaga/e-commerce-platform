@@ -18,6 +18,10 @@ export const allProducts = proxy({
   products: [] as Product[],
 });
 
+export const cartOpen = proxy({
+  isOpen:false,
+});
+
 /*export const pokemon = derive({
   list: (get) => {
     const query = get(search).query.toLowerCase();
