@@ -6,9 +6,16 @@ import React, { useEffect, useState } from "react";
 import Logo from "../img/logo.svg";
 import { BsBag } from "react-icons/bs";
 import Searchbar from "./Searchbar.tsx";
-
+import { cartOpen } from "../State/store.tsx";
+import { useSnapshot } from "valtio";
 const Header = () => {
   // header state
+  const snap = useSnapshot(cartOpen)
+  
+  const handlecartOpen = (event) => {
+    cartOpen.isOpen = true
+  }
+
   const [isActive, setIsActive] = useState(true);
   //const { isOpen, setIsOpen } = useContext(SidebarContext);
   //const { itemAmount } = useContext(CartContext);
@@ -36,6 +43,7 @@ const Header = () => {
         </div>
         {/* cart */}
         <div
+          onClick={handlecartOpen}
           className="cursor-pointer flex relative"
         >
           <BsBag className="text-2xl" />
