@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/TestNavbar.tsx";
 import Homepage from "./pages/homepage.tsx";
-//import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Cart from "./components/Cart.tsx";
 import Products from "./products.tsx";
 import Productdescription from "./pages/productdescription.tsx";
 import {
@@ -39,6 +39,7 @@ function App() {
       <div>
         <Outlet />
       </div>
+      <Cart />
       </Router>
     </div>
   );
