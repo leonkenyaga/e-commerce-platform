@@ -1,8 +1,18 @@
-import React from "react"
-
-
+import React from "react";
+import { useMatch } from "@tanstack/react-location";
+import { useSnapshot } from "valtio";
+import { allProducts } from "../State/store.tsx";
 
 function ProductOverview() {
+
+  const {
+    params: { id },
+  } = useMatch();
+
+  const snap = useSnapshot(allProducts)
+
+  const productData = snap.products.find((p) => p.id === +id);
+
   
   return (
     <div className="bg-white">
@@ -13,7 +23,7 @@ function ProductOverview() {
       <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
         <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
           <img className="w-full dark:hidden" src='https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg' alt="" />
-          <img className="w-full" src='https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg' alt="" />
+          <img className="w-full" src={productData?.imageSrc} alt="" />
         </div>
 
         <div className="mt-6 sm:mt-8 lg:mt-0">
