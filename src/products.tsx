@@ -6,8 +6,7 @@ import { allProducts } from "./State/store.tsx";
 function Products(props) {
   
   
-
-  const snap = useSnapshot(allProducts)
+   const snap = useSnapshot(allProducts)
 
   
     return (
@@ -16,7 +15,7 @@ function Products(props) {
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">{props.tag}</h2>
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {snap.products.map((product) => (
-              <Link key={product.id} to={`/product-description/${product.name}-${product.id}`}>
+              <Link key={product.id} to={`/product-description/${product.id}`}>
               <div key={product.id} className="group relative">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                   <img
@@ -28,7 +27,7 @@ function Products(props) {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700">
-                      <a href={product.href}>
+                      <a>
                         <span aria-hidden="true" className="absolute inset-0" />
                         {product.name}
                       </a>
